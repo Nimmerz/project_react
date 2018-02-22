@@ -1,0 +1,5 @@
+// @flow
+
+export const GET_SPAM_REQUEST = 'GET_SPAM_REQUEST';
+export const GET_SPAM_SUCCESS = 'GET_SPAM_SUCCESS';
+export const GET_SPAM_FAILURE = 'GET_SPAM_FAILURE';

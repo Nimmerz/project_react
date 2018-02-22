@@ -1,0 +1,12 @@
+[ignore]
+
+[include]
+
+[libs]
+./flow-typed/npm/
+
+[options]
+module.name_mapper='.*\.\(styl\|svg\|png\|jpg\|cur\)$' -> 'Stub'
+module.system=haste
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable

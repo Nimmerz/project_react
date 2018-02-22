@@ -1,0 +1,5 @@
+// @flow
+
+export const GET_SENT_REQUEST = 'GET_SENT_REQUEST';
+export const GET_SENT_SUCCESS = 'GET_SENT_SUCCESS';
+export const GET_SENT_FAILURE = 'GET_SENT_FAILURE';

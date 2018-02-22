@@ -1,0 +1,225 @@
+@import '../../theme/colors.styl'
+
+.main__content--list
+  width 100%
+  background-color $white
+  box-shadow: 0 3px 6px 0 $modal-shadow
+  border solid 1px $list-border
+  padding-left 0
+  list-style none
+  margin-bottom 20px
+.main__content--paragraph
+  font-size 14px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.14
+  letter-spacing normal
+  text-align left
+  color $list-line
+  margin-left 22px
+.main__content--list-item
+  padding 0 6px
+  border-bottom 1px solid $list-border
+.main__content--list-link
+  display flex
+  flex-direction row
+  font-size 14px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.14
+  letter-spacing normal
+  text-align left
+  color $counter-text
+  text-decoration: none
+.content
+  padding: 18px 40px
+
+.main__content--elements
+  width 100%
+  position: relative
+
+.message-group
+  color $black
+
+.message-group:not(:first-child)
+  margin-top: 30px
+
+
+.message-group__title
+  margin-left 10px
+  color $pre-black
+  font-size 1rem
+
+
+.message-group__body
+  margin-top 20px
+  border: 1px solid $black
+  box-shadow: 0 0 6px 1px $pre-white
+
+
+.message
+  max-width 100%
+  padding 0 15px
+  color $black
+  display flex
+  align-items center
+  justify-content flex-start
+  transition transform .4s
+
+
+.btn-hover
+  color $black
+  opacity 0.7
+  object-fit: contain
+  border none
+  padding 0
+  cursor pointer
+
+.message-controls
+  display none
+
+
+.message:hover
+  cursor pointer
+
+
+.message:not(.message-open):hover .message__body
+  flex-basis 60%
+
+
+.message:not(.message-open):hover .message-controls
+  position absolute
+  right 15px
+  display flex
+
+
+.message:not(:first-child)
+  border-top 1px solid $black
+
+
+.message__subject
+  flex-basis 30%
+  text-overflow ellipsis
+  overflow hidden
+  white-space nowrap
+
+
+.message__body
+  flex-basis 65%
+  margin-left 25px
+  text-overflow ellipsis
+  overflow hidden
+  white-space nowrap
+
+.message-open
+  justify-content space-between
+  flex-wrap wrap
+  padding 0
+  background-color $white
+  box-shadow 0 3px 6px 0 $modal-shadow
+  border solid 1px $list-border
+  transform scale(1.03)
+  z-index 2
+
+.message-open__paragraph-sec
+  width 645px
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+  margin-left 33px
+
+
+.message-open > .message-open__paragraph
+  padding-left 15px
+  font-weight bold
+
+.message-open > .message-open__paragraph-sec
+  font-size 14px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.14
+  letter-spacing normal
+  text-align left
+  width 100%
+  white-space inherit
+  overflow visible
+  color $counter-text
+  padding-left 15px
+  order 3
+  margin-left 0
+
+
+.message-open .message__subject
+  padding 10px 15px
+  order 1
+  white-space normal
+  flex-basis 80%
+
+.message-open .message-controls
+  display flex
+  position absolute
+  top 8px
+  right 15px
+
+.message-open .message__recipients
+  padding 10px 15px
+  order 3
+  flex-basis 100%
+  border-top solid 1px $list-border;
+  border-bottom solid 1px $list-border;
+
+.message-open .message__body
+  padding 10px 15px
+  margin-left 0
+  order 4
+  flex-basis: 100%;
+  white-space normal
+
+.recipient-fields--label
+  font-size 13px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.15
+  letter-spacing normal
+  text-align left
+  color $list-line
+
+.recipient-fields--form
+  min-height 40px
+  display flex
+  flex-direction row
+  align-items center
+
+.recipient-fields--input
+  width 100%
+  margin-left 35px
+  border none
+  outline none
+
+.recipient-fields--input-сс
+  width 100%
+  margin-left 50px
+  border none
+  outline none
+
+.recipient-fields--input-bcc
+  width 100%
+  margin-left 43px
+  border none
+  outline none
+
+.recipient-fields--input-bcc::placeholder, .recipient-fields--input-сс::placeholder, .recipient-fields--input::placeholder
+  font-size 13px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.15
+  letter-spacing normal
+  text-align left
+  color $counter-text
+.list-item-bold > .main__content--list-link
+  font-weight bold

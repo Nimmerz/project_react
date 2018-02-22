@@ -1,0 +1,72 @@
+@import '../../theme/colors.styl'
+
+.sidebar__list
+  display flex
+  flex-direction column
+  padding-left: 0
+  list-style none
+  margin-top 24px
+.sidebar__list--item
+  padding-left 17px
+  display flex
+  flex-direction row
+  justify-content flex-start
+  align-items center
+  height 50px
+  cursor pointer
+  position: relative
+  &:hover
+    background-color $list-hover
+    &:before
+      content ''
+      position: absolute
+      height 50px
+      width 4px
+      left 0
+      background $list-line
+  i
+    font-size 25px
+    margin-right 14px
+.active
+  background-color $list-hover
+  &:before
+    content ''
+    position: absolute
+    height 50px
+    width 4px
+    left 0
+    background $list-line
+.sidebar__list--link
+  font-size 14px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.14
+  letter-spacing normal
+  margin-left 0
+  text-align left
+  text-decoration: none
+  color $list-line
+  &:hover
+    opacity 0.8
+    text-decoration: none
+    color $list-line
+.sidebar__list--span
+  width 25px
+  height 25px
+  border-radius 50%
+  background-color $counter-back
+  border solid 1px $counter-border
+  display flex
+  justify-content center
+  align-items center
+  margin-left 38px
+  font-size 13px
+  font-weight bold
+  font-style normal
+  font-stretch normal
+  line-height 1.15
+  letter-spacing normal
+  color $counter-text
+
+

@@ -1,0 +1,5 @@
+// @flow
+
+export const GET_INBOX_REQUEST = 'GET_INBOX_REQUEST';
+export const GET_INBOX_SUCCESS = 'GET_INBOX_SUCCESS';
+export const GET_INBOX_FAILURE = 'GET_INBOX_FAILURE';

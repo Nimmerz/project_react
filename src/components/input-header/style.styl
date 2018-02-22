@@ -1,0 +1,43 @@
+@import '../../theme/colors.styl'
+
+.header__input--main
+  position relative
+.header__input
+  width 344px
+  height 40px
+  border none
+  border-radius 4px
+  background-color: $input-color
+  padding-left 65px
+  z-index 1
+.header__input--label
+  position absolute
+  color $white
+  z-index 2
+  left 11px
+  top 8px
+  i
+    font-size 25px
+.header__input--speech
+  position absolute
+  color $white
+  top 11px
+  left 374px
+  cursor pointer
+  z-index 2
+  &:hover
+    opacity 0.8
+.header__input::placeholder
+  font-size 16px
+  font-weight 300
+  font-style normal
+  font-stretch normal
+  line-height 1.19
+  letter-spacing normal
+  text-align left
+  color $white
+  opacity 1
+
+
+
+

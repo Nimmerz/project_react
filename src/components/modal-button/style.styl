@@ -1,0 +1,201 @@
+@import '../../theme/colors.styl'
+
+.button-plus
+  width 60px
+  height 60px
+  border-radius 50%
+  color $white
+  display flex
+  justify-content center
+  align-items center
+  background-color $modal-back
+  box-shadow 0 3px 6px 0 $modal-shadow
+  cursor pointer
+  position absolute
+  bottom 20px
+  right 20px
+  z-index 1
+  outline none
+  i
+    font-size 34px
+
+.main__content--modal
+  width 912px
+  height 532px
+  border-radius 5px;
+  background-color $white
+  box-shadow 10px 10px 6px 0 $modal-shadow
+  border solid 1px $modal-border
+  position absolute
+  left 225px
+  top 117px
+  z-index 999
+.main__content--modal-main
+  display flex
+  justify-content space-between
+  align-items center
+  height 40px
+  background-color $modal-main
+  border solid 1px $modal-border
+  color $white
+  padding 0 20px 0 30px
+  border-radius 4px 4px 0 0
+.main__content--modal-close
+  text-decoration: none
+  color $white
+  font-size 28px
+  margin-top 4px
+  &:hover
+    text-decoration: none
+    color $white
+    opacity 0.8
+
+.main__content--modal-input
+  height 40px
+  display flex
+  flex-direction row
+  align-items center
+  padding-left 27px
+  padding-right 27px
+
+.main__content--label-first
+  font-size 13px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.15
+  letter-spacing normal
+  text-align left
+  color $list-line
+
+.main__content--input-first
+  width 100%
+  height 25px
+  border 0
+  outline none
+  margin-left 50px
+
+.main__content--input-first-bcc
+  margin-left 45px
+  width 100%
+  height 25px
+  border 0
+  outline none
+
+.main__content--input-first::placeholder, .main__content--input-first-bcc::placeholder
+  font-size 13px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.15
+  letter-spacing normal
+  text-align left
+  color $counter-text
+
+.main__content--modal-input-text
+  padding-left 27px
+  padding-right 27px
+  height 40px
+  display flex
+  align-items center
+
+.main__content--modal-input-textarea
+  padding-left 27px
+  padding-right 27px
+
+.main__content--modal-subject::placeholder, .main__content--modal-area::placeholder
+  font-size 13px
+  font-weight normal
+  font-style normal
+  font-stretch normal
+  line-height 1.15
+  letter-spacing normal
+  text-align left
+  color $modal-placeholder
+
+.main__content--modal-subject
+  width 100%
+  border 0
+  outline none
+  height 25px
+
+.main__content--modal-area
+  width 100%
+  border 0
+  outline none
+  height 250px
+  margin-top 10px
+
+.main__content--modal-buttons
+  display flex
+  justify-content flex-end
+  padding-right 27px
+  padding-left 27px
+
+.main__content--modal-cancel
+  width 90px
+  height 36px
+  border-radius 2px
+  background-color $white
+  box-shadow 0 2px 2px 0 $button-shadow
+  border solid 1px $button-border
+  font-size 14px
+  font-weight 500
+  font-style normal
+  font-stretch normal
+  line-height 1.43
+  letter-spacing normal
+  text-transform: uppercase
+  color $button-border
+  cursor pointer
+  margin-right: 12px
+  margin-top: 10px;
+
+.main__content--modal-cancel:hover
+  box-shadow 0 6px 6px 0 $button-shadow
+  opacity 0.8
+
+.main__content--modal-send
+  width 90px
+  height 36px
+  border-radius 2px
+  background-color $button-border
+  box-shadow 0 2px 2px 0 $button-shadow
+  font-size 14px
+  font-weight 500
+  font-style normal
+  font-stretch normal
+  line-height 1.43
+  letter-spacing normal
+  text-transform uppercase
+  color $white
+  cursor pointer
+  border 0
+  margin-top: 10px;
+
+.main__content--modal-send:hover
+  box-shadow 0 6px 6px 0 $button-shadow
+  opacity 0.8
+
+.modal_border
+  position: relative
+  &:after
+    position absolute
+    content ''
+    border solid 1px $list-line
+    width 100%
+    left 0
+    top 40px
+.modal
+  background-color $modal-rgba
+  position absolute
+  height 100%
+  width 100%
+  top 0
+  left 0
+  display flex
+  align-items center
+  justify-content center
+  z-index 2
+
+
