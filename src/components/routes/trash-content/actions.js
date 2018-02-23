@@ -1,15 +1,17 @@
 // @flow
 
-import {CALL_API, get, remove} from '../../../api';
+import {CALL_API, get, remove, post} from '../../../api';
 import {
     GET_TRASH_REQUEST,
     GET_TRASH_SUCCESS,
     GET_TRASH_FAILURE,
     REMOVE_TRASH_REQUEST,
     REMOVE_TRASH_SUCCESS,
-    REMOVE_TRASH_FAILURE
+    REMOVE_TRASH_FAILURE,
+    ADD_TRASH_REQUEST,
+    ADD_TRASH_SUCCESS,
+    ADD_TRASH_FAILURE,
 } from './constants';
-
 
 export const getTrashUsageStatistics = () => (dispatch, getState) => {
     const {loaded, pending} = getState().trashContent;
@@ -29,7 +31,6 @@ export const getTrashUsageStatistics = () => (dispatch, getState) => {
     });
 };
 
-
 export const fetchTrashStatistic = (params) => {
     return {
         type: GET_TRASH_REQUEST,
@@ -37,13 +38,11 @@ export const fetchTrashStatistic = (params) => {
     }
 };
 
-
-export const removeTrashUsageStatistics = () => (dispatch, getState) => {
+export const removeTrashUsageStatistics = (deleteSTring) => (dispatch, getState) => {
     const {loaded, pending} = getState().removeTrashContent;
     if (loaded || pending) {
         return null;
     }
-
     return dispatch({
         [CALL_API]: {
             types: [
@@ -51,16 +50,24 @@ export const removeTrashUsageStatistics = () => (dispatch, getState) => {
                 REMOVE_TRASH_SUCCESS,
                 REMOVE_TRASH_FAILURE
             ],
-            endpoint: () => remove('trash', {})
+            endpoint: () => remove(deleteSTring)
         }
     });
 };
 
-
-export const removeTrashStatistic = (params) => {
-    return {
-        type: GET_TRASH_REQUEST,
-        params
+export const postData = (path, mess) => (dispatch, getState) => {
+    const {loaded, pending} = getState().postTrashContent;
+    if (loaded || pending) {
+        return null;
     }
+    return dispatch({
+        [CALL_API]: {
+            types: [
+                ADD_TRASH_REQUEST,
+                ADD_TRASH_SUCCESS,
+                ADD_TRASH_FAILURE,
+            ],
+            endpoint: () => post(path, mess)
+        }
+    });
 };
-
