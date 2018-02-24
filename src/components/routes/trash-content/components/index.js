@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import Sign from '../../../sign';
 import '../../../routes/style.styl';
 import {connect} from 'react-redux';
-import {removeTrashUsageStatistics} from '../actions'
-
+import {removeTrashUsageStatistics, postData} from '../actions'
 
 type Props = {
     type: string,
@@ -52,27 +51,30 @@ class ListItem extends Component<PropsList, State> {
         read: false
     };
 
+
     handleOpenClick = (event) => {
         event.preventDefault();
     };
 
 
-    handleMoveToInbox = (to) => {
-        props.addTo('messages-inbox', message);
-        props.remove(path);
+    handleMoveToInbox = () => {
+        console.log("222");
+        this.props.postTrashContent('inbox-content',  this.props.mess._id.$oid);
+        this.props.removeTrashUsageStatistics(this.path);
     };
 
 
     handleMoveToSpam = (pathTo) => {
-        props.addTo('messages-spam', message);
+        props.addTo('messages-spam', this.props.mess);
         props.remove(path);
     };
 
 
     handleOnRemove = () => {
         console.log("111");
-        if (this.current !== 'trash') {
-            props.addTo('trash-content', {...mess, prevSection: current});
+        const current = location.pathname.slice(1);
+        if (current !== 'trash') {
+            // this.props.postTrashContent('trash-content', {...this.props.mess, prevSection: current});
             this.props.removeTrashUsageStatistics(this.path);
         } else {
             if (confirm('Delete message permanently?')) {
@@ -104,7 +106,7 @@ class ListItem extends Component<PropsList, State> {
                 </p>
 
                 <div className="message-controls">
-                    <Buttons type="btn-restore"/>
+                    <Buttons onClick={this.handleMoveToInbox} type="btn-restore"/>
                     <Buttons onClick={this.handleOnRemove} type="btn-trash"/>
                 </div>
             </div>
@@ -138,8 +140,8 @@ class EmailData extends Component<{}> {
     }
 }
 
-
 export default connect(state => ({
-    removeTrashContent: state.removeTrashContent
-} ), {removeTrashUsageStatistics})
+    removeTrashContent: state.removeTrashContent,
+    postTrashContent: state.postTrashContent
+} ), {removeTrashUsageStatistics, postData})
 (ListItem);
