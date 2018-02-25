@@ -39,10 +39,7 @@ export const fetchTrashStatistic = (params) => {
 };
 
 export const removeTrashUsageStatistics = (deleteSTring) => (dispatch, getState) => {
-    const {loaded, pending} = getState().removeTrashContent;
-    if (loaded || pending) {
-        return null;
-    }
+
     return dispatch({
         [CALL_API]: {
             types: [

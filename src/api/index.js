@@ -56,4 +56,5 @@ const put = (url: string, body: Object, extraParams: Object = {}) =>
 const remove = (url: string, extraParams: Object = {}) =>
     fetch(urlResolver(url, extraParams), {method: 'DELETE'});
 
+
 export {get, post, put, remove};

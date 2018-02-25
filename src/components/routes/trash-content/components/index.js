@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Sign from '../../../sign';
 import '../../../routes/style.styl';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
+import {withRouter} from 'react-router-dom'
 import {removeTrashUsageStatistics, postData} from '../actions'
 
 type Props = {
@@ -43,8 +45,7 @@ type PropsList = {
 class ListItem extends Component<PropsList, State> {
     constructor(props) {
         super(props);
-        this.current = window.location.pathname.slice(1);
-        this.path = `${this.current}/${this.props.mess._id.$oid}`;
+        this.path = `trash/${this.props.mess._id.$oid}`;
     }
 
     state = {
@@ -58,7 +59,6 @@ class ListItem extends Component<PropsList, State> {
 
 
     handleMoveToInbox = () => {
-        console.log("222");
         this.props.postTrashContent('inbox-content',  this.props.mess._id.$oid);
         this.props.removeTrashUsageStatistics(this.path);
     };
@@ -71,9 +71,8 @@ class ListItem extends Component<PropsList, State> {
 
 
     handleOnRemove = () => {
-        console.log("111");
-        const current = location.pathname.slice(1);
-        if (current !== 'trash') {
+        const { location : { pathname = '' } = {} } = this.props;
+        if (pathname.indexOf('trash') === -1) {
             // this.props.postTrashContent('trash-content', {...this.props.mess, prevSection: current});
             this.props.removeTrashUsageStatistics(this.path);
         } else {
@@ -140,8 +139,11 @@ class EmailData extends Component<{}> {
     }
 }
 
-export default connect(state => ({
-    removeTrashContent: state.removeTrashContent,
-    postTrashContent: state.postTrashContent
-} ), {removeTrashUsageStatistics, postData})
-(ListItem);
+export default compose(
+    connect(state => ({
+        removeTrashContent: state.removeTrashContent,
+        postTrashContent: state.postTrashContent
+    } ), {removeTrashUsageStatistics, postData}),
+    withRouter
+)(ListItem)
+;
